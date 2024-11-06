@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://h3ewwb0ceddl"]
+
+[ext_resource type="Script" path="res://Scenes/Items/item_template.gd" id="1_a1fyc"]
+[ext_resource type="Texture2D" uid="uid://wav2tvfdfyhy" path="res://assets/file.png" id="2_3bysi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s7ua3"]
+radius = 12.0416
+
+[node name="FolderItem" type="Area2D"]
+script = ExtResource("1_a1fyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_s7ua3")
+debug_color = Color(0.0737255, 0.0839993, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_3bysi")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

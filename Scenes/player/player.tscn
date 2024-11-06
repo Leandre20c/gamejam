@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgqoexyjlov38"]
+[gd_scene load_steps=8 format=3 uid="uid://dgqoexyjlov38"]
 
 [ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_c72kj"]
 [ext_resource type="Script" path="res://Scenes/player/velocity_component.gd" id="2_b4jk3"]
+[ext_resource type="Script" path="res://Scenes/player/interact_items.gd" id="3_tkmn2"]
 
 [sub_resource type="Gradient" id="Gradient_gwjtq"]
 offsets = PackedFloat32Array(0.532468)
@@ -11,18 +12,32 @@ colors = PackedColorArray(0.92549, 0.87451, 0.8, 1)
 gradient = SubResource("Gradient_gwjtq")
 use_hdr = true
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyjsr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g8sge"]
+radius = 29.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c72kj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.315482, 0.315482)
 texture = SubResource("GradientTexture2D_wki27")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jyjsr")
 
 [node name="VelocityComponent" type="Node" parent="."]
 script = ExtResource("2_b4jk3")
 max_speed = 300
-acceleration = 7.0
+acceleration = 8.0
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 200)
+[node name="InteractItems" type="Area2D" parent="."]
+script = ExtResource("3_tkmn2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractItems"]
+shape = SubResource("CircleShape2D_g8sge")
+debug_color = Color(0, 0.411765, 0.776471, 0)
+
+[connection signal="area_entered" from="InteractItems" to="InteractItems" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractItems" to="InteractItems" method="_on_area_exited"]

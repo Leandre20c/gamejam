@@ -26,7 +26,12 @@ func decelerate():
 	accelerate_in_direction(Vector2.ZERO)
 
 
-func move(character_body: CharacterBody2D):
+func run(character_body: CharacterBody2D):
 	character_body.velocity = velocity
+	character_body.move_and_slide()
+	velocity = character_body.velocity
+
+func walk(character_body: CharacterBody2D):
+	character_body.velocity = velocity / 1.1
 	character_body.move_and_slide()
 	velocity = character_body.velocity

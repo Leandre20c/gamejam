@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c8taog7n62j3a"]
+
+[ext_resource type="Shader" path="res://Scenes/player/outline_item.gdshader" id="1_v5isc"]
+
+[resource]
+shader = ExtResource("1_v5isc")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 10.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)

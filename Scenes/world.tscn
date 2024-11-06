@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bx1fgkdfuu44e"]
+[gd_scene load_steps=3 format=3 uid="uid://bx1fgkdfuu44e"]
 
 [ext_resource type="PackedScene" uid="uid://dgqoexyjlov38" path="res://Scenes/player/player.tscn" id="1_0prbg"]
+[ext_resource type="PackedScene" uid="uid://h3ewwb0ceddl" path="res://Scenes/Items/folder_item.tscn" id="2_43ow5"]
 
 [node name="World" type="Node2D"]
 
@@ -16,3 +17,6 @@ position = Vector2(4, 3)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="FolderItem" parent="." instance=ExtResource("2_43ow5")]
+position = Vector2(-47, -31)
