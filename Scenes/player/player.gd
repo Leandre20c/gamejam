@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
+#@onready var animated_sprite_2d = $AnimatedSprite2D
 
 @onready var velocity_component = $VelocityComponent
 
@@ -19,6 +19,8 @@ func _process(delta):
 	var direction = movement_vector.normalized()
 	velocity_component.accelerate_in_direction(direction)
 	velocity_component.move(self)
+	look_at(get_global_mouse_position())
+	
 	
 	#if movement_vector.x != 0 or movement_vector.y != 0:
 		#animated_sprite_2d.play("run")
