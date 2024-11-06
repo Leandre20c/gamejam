@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgqoexyjlov38"]
+
+[ext_resource type="Script" path="res://Scenes/player/player.gd" id="1_c72kj"]
+[ext_resource type="Script" path="res://Scenes/player/velocity_component.gd" id="2_b4jk3"]
+
+[sub_resource type="Gradient" id="Gradient_gwjtq"]
+offsets = PackedFloat32Array(0.532468)
+colors = PackedColorArray(0.92549, 0.87451, 0.8, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wki27"]
+gradient = SubResource("Gradient_gwjtq")
+use_hdr = true
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_c72kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_wki27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="VelocityComponent" type="Node" parent="."]
+script = ExtResource("2_b4jk3")
+max_speed = 300
+acceleration = 7.0
